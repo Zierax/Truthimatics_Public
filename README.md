@@ -1,21 +1,77 @@
-# Truthimatics: Evidence-Driven Determinism
+# Truthimatics
+## Evidence-Driven Determinism
+
+> *A system is not defined by how often it answers, but by how well it knows when it should not.*
+
+---
 
 ## Overview
 
-Truthimatics is a decision framework designed to move beyond probabilistic estimation toward **evidence-driven determinism**.
+Truthimatics is a framework for building decision systems that operate under **evidence-driven determinism** rather than probabilistic approximation.
 
-Traditional machine learning systems output confidence scores that often appear precise but lack grounded reliability. Truthimatics addresses this by enforcing a stricter standard: decisions are only issued when the system can justify them through **bounded uncertainty and multi-source agreement**.
+Traditional machine learning systems generate confidence scores that often appear precise but are not inherently reliable. Truthimatics introduces a stricter paradigm:  
+a system must **justify its decisions through converging evidence and bounded uncertainty**, or explicitly refuse to decide.
 
-The objective is not to maximize accuracy alone, but to ensure that every decision is **defensible, measurable, and constrained by known limits of uncertainty**. When those limits are not met, the system explicitly refuses to produce a verdict.
+The goal is not to maximize output frequency, but to ensure that every issued decision is:
+- **Justified**
+- **Stable**
+- **Actionable**
 
-### Architectural Logic Flow
+---
+
+## From Estimation to Justification
+
+Truthimatics reframes decision-making as a process of **evidence validation**, not prediction.
+
+Instead of relying on a single model output, the system:
+- Collects multiple independent signals
+- Evaluates their consistency
+- Measures uncertainty explicitly
+- Aligns confidence with observed outcomes over time
+
+A result is only considered valid when it satisfies strict internal criteria for **consistency, agreement, and bounded uncertainty**.
+
+---
+
+## Core Principles
+
+### 1. Evidence Before Action
+No decision is issued without sufficient, independent support.
+
+---
+
+### 2. Uncertainty is Explicit
+Uncertainty is not hidden behind a number — it is tracked, decomposed, and enforced as a decision constraint.
+
+---
+
+### 3. Agreement Over Averaging
+Confidence is derived from **converging signals**, not averaged outputs.
+
+Agreement strengthens decisions.  
+Disagreement delays or prevents them.
+
+---
+
+### 4. Refusal is a Valid Outcome
+When evidence is insufficient or unstable, the system **does not guess**.  
+It explicitly withholds a decision.
+
+---
+
+### 5. Continuous Alignment
+All outputs are continuously evaluated against real-world outcomes, ensuring that the system remains grounded in reality.
+
+---
+
+## Conceptual System Flow
 
 ```mermaid
 graph TD
     A[Incoming Signal] --> B[Multi-Source Analysis]
 
     B --> C[Evidence Evaluation]
-    C --> D[Consistency & Agreement Check]
+    C --> D[Consistency & Agreement]
 
     D --> E[Confidence Assessment]
     D --> F[Uncertainty Evaluation]
@@ -30,131 +86,98 @@ graph TD
     I --> J
 
     J --> B
-```
+````
 
----
-
-## From Confidence to Certainty
-
-Truthimatics redefines how confidence is constructed and interpreted.
-
-Instead of relying on a single model output, the framework treats confidence as the result of **structured evidence accumulation**. Multiple independent analytical processes contribute signals that are:
-
-* Individually evaluated
-* Cross-validated against each other
-* Continuously calibrated against real-world outcomes
-
-A decision is not considered valid unless these signals converge under strict internal consistency criteria.
-
----
-
-## Core Concepts
-
-### Uncertainty Awareness
-
-Truthimatics distinguishes between different forms of uncertainty:
-
-* **Irreducible uncertainty** arising from inherent noise in the data
-* **Reducible uncertainty** caused by insufficient evidence or incomplete knowledge
-
-The system explicitly tracks and manages both, ensuring that decisions are only made when uncertainty is sufficiently constrained.
-
----
-
-### Evidence Convergence
-
-Rather than averaging outputs, Truthimatics emphasizes **agreement across independent sources**.
-
-Confidence emerges when:
-
-* Multiple analytical processes reach consistent conclusions
-* Weak or conflicting signals are filtered out
-* Dependencies between signals are accounted for
-
-This creates a system where agreement strengthens decisions, and disagreement delays them.
-
----
-
-### Refusal as a First-Class Outcome
-
-A defining property of Truthimatics is its ability to **withhold decisions**.
-
-If evidence is insufficient, inconsistent, or unstable, the system does not degrade into guesswork. Instead, it explicitly returns a non-decision state, preserving reliability over coverage.
+> This diagram represents a **conceptual flow**, not an implementation.
 
 ---
 
 ## System Behavior
 
-Truthimatics operates as a continuous evaluation loop:
+Truthimatics operates as a closed-loop evaluation system:
 
-* Incoming signals are assessed relative to evolving reference distributions
-* Independent analytical processes extract and validate evidence
-* Relationships within the data are monitored for stability over time
-* Confidence signals are calibrated against observed outcomes
-* Decisions are issued only when all internal criteria for determinism are satisfied
+* Signals are analyzed relative to evolving reference patterns
+* Independent analytical processes extract structured evidence
+* Relationships within data are monitored for stability over time
+* Confidence is continuously aligned with observed correctness
+* Decisions are only issued when all internal conditions are satisfied
 
-The system continuously updates itself through feedback, ensuring that its internal models remain aligned with reality.
-
----
-
-## Decision Model
-
-Truthimatics produces structured outcomes that reflect both confidence and evidence quality:
-
-* **Deterministic** — Strong agreement, tightly bounded uncertainty, and stable evidence
-* **Probable** — Sufficient evidence for action, with controlled uncertainty
-* **Uncertain** — Incomplete or conflicting signals; further analysis required
-* **Weak** — Insufficient evidence to support a reliable conclusion
-* **Reject** — Ambiguous or unresolvable input; no decision issued
-
-These categories are not arbitrary thresholds, but the result of internal consistency checks across the entire system.
+When these conditions are not met, the system transitions into a non-decision state.
 
 ---
 
-## Example (Conceptual)
+## Decision States
 
-Given a complex input signal:
+Truthimatics produces structured outcomes that reflect both **confidence quality** and **evidence integrity**:
 
-* Multiple independent analyses are performed
-* Each produces an evidence signal with associated reliability
-* The system evaluates agreement, stability, and uncertainty bounds
-* If convergence is achieved under strict criteria, a deterministic verdict is issued
-* Otherwise, the system either delays the decision or rejects it entirely
+| State             | Description                                                                       |
+| ----------------- | --------------------------------------------------------------------------------- |
+| **Deterministic** | Strong agreement across independent evidence with tightly constrained uncertainty |
+| **Probable**      | Sufficient evidence for action with controlled uncertainty                        |
+| **Uncertain**     | Conflicting or incomplete signals; further evaluation required                    |
+| **Weak**          | Insufficient evidence to support a reliable conclusion                            |
+| **Reject**        | Ambiguous or unresolved input; no decision issued                                 |
+
+These states emerge from internal validation processes, not fixed external thresholds.
+
+---
+
+## Conceptual Example
+
+Given a complex input:
+
+* Multiple analytical perspectives evaluate the signal
+* Each produces an evidence contribution with associated reliability
+* The system measures agreement, stability, and uncertainty bounds
+* If convergence is achieved, a deterministic decision is issued
+* Otherwise, the system delays or refuses the decision
 
 ---
 
 ## Core Guarantees
 
-Truthimatics enforces a set of non-negotiable principles:
+Truthimatics enforces the following principles:
 
-* **No single-source decisions** — conclusions require independent agreement
-* **Calibrated confidence** — all outputs are aligned with observed correctness over time
-* **Uncertainty-aware reasoning** — decisions are bounded by measurable limits
-* **Adaptive behavior** — the system continuously updates based on new evidence
-* **Drift sensitivity** — changes in underlying data distributions trigger re-evaluation
-* **Failure transparency** — uncertainty results in explicit non-decisions, not hidden errors
+* **Multi-source validation** — no single point of failure
+* **Calibrated outputs** — confidence reflects observed correctness over time
+* **Uncertainty-aware decisions** — all outputs respect measurable limits
+* **Adaptive learning** — the system evolves with new evidence
+* **Drift sensitivity** — changes in data patterns trigger re-evaluation
+* **Transparent failure modes** — uncertainty results in explicit non-decisions
 
 ---
 
 ## Design Philosophy
 
-Truthimatics is built around a fundamental shift:
+Truthimatics is built on a fundamental shift:
 
-> The goal is not to always produce an answer,
-> but to ensure that every answer produced is **justified, stable, and actionable**.
+> The objective is not to always produce an answer,
+> but to ensure that every answer produced is **defensible**.
 
-A system that knows when not to decide is more reliable than one that always does.
+A system that refuses uncertain decisions is more reliable than one that always responds.
 
 ---
 
-## Closing Note
+## Closing Perspective
 
-Truthimatics is not a single model or algorithm.
-It is a structured approach to building systems that:
+Truthimatics represents a transition from:
+
+```
+"What is the answer?"
+```
+
+to:
+
+```
+"Is there enough evidence to justify the answer?"
+```
+
+It is not a single model or technique, but a structured approach to building systems that:
 
 * Understand the limits of their knowledge
 * Require evidence before action
-* And treat uncertainty as a measurable, controllable quantity
+* Treat uncertainty as a measurable constraint
 
 The result is a new class of systems defined not by how often they are correct,
 but by how rigorously they **justify being correct**.
+
