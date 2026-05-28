@@ -1,4 +1,4 @@
-# Truthimatics
+# Truthimatics V2
 ## Evidence-Driven Determinism
 
 > *A system is not defined by how often it answers, but by how well it knows when it should not.*
